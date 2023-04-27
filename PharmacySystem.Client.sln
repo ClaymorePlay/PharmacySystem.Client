@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PharmacySystem.Client", "PharmacySystem.Client\PharmacySystem.Client.csproj", "{7ECFC5C1-1E94-4977-A90D-D70E56B6E726}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PharmacySystem.Client", "PharmacySystem.Client\PharmacySystem.Client.csproj", "{7ECFC5C1-1E94-4977-A90D-D70E56B6E726}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WsModels", "WsModels\WsModels.csproj", "{F3969F66-1454-4199-8C0A-2A7AFD9BF304}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7ECFC5C1-1E94-4977-A90D-D70E56B6E726}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ECFC5C1-1E94-4977-A90D-D70E56B6E726}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ECFC5C1-1E94-4977-A90D-D70E56B6E726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3969F66-1454-4199-8C0A-2A7AFD9BF304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3969F66-1454-4199-8C0A-2A7AFD9BF304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3969F66-1454-4199-8C0A-2A7AFD9BF304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3969F66-1454-4199-8C0A-2A7AFD9BF304}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

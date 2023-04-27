@@ -37,6 +37,7 @@
             this.PharmacyId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ErrorMessage = new System.Windows.Forms.Label();
+            this.Mode = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Administration
@@ -127,11 +128,23 @@
             this.ErrorMessage.TabIndex = 8;
             this.ErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // Mode
+            // 
+            this.Mode.AutoSize = true;
+            this.Mode.ForeColor = System.Drawing.Color.Green;
+            this.Mode.Location = new System.Drawing.Point(628, 369);
+            this.Mode.Name = "Mode";
+            this.Mode.Size = new System.Drawing.Size(30, 15);
+            this.Mode.TabIndex = 9;
+            this.Mode.Text = "User";
+            this.Mode.Click += new System.EventHandler(this.Mode_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Mode);
             this.Controls.Add(this.ErrorMessage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PharmacyId);
@@ -160,5 +173,6 @@
         private TextBox PharmacyId;
         private Label label2;
         private Label ErrorMessage;
+        private Label Mode;
     }
 }

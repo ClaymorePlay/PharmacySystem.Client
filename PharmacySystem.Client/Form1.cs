@@ -1,3 +1,8 @@
+using Newtonsoft.Json;
+using PharmacySystem.Client.Models;
+using WsModels.Request;
+using WsModels.WsResponse;
+
 namespace PharmacySystem.Client
 {
     public partial class Form1 : Form
@@ -7,9 +12,38 @@ namespace PharmacySystem.Client
             InitializeComponent();
         }
 
-        private void Administration_Click(object sender, EventArgs e)
+        private async void Administration_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var currentUser = await WsConnection.SendAndWaitResponse<GetCurrentUserResponse>(new WsRequest
+                {
+                    controller = "UserService",
+                    method = "GetCurrentUser",
+                    value = null
+                });
 
+                if (currentUser.value?.UserId == null)
+                {
+                    var roms = new LoginForm(this);
+                    roms.Show();
+
+                    //var login = await WsConnection.SendAndWaitResponse<LoginResponse>(new WsRequest
+                    //{
+                    //    controller = "UserService",
+                    //    method = "Login",
+                    //    value = JsonConvert.SerializeObject(new LoginRequest
+                    //    {
+                    //        Email = "kacher-2005@bk.ru",
+                    //        Password = "111222333"
+                    //    })
+                    //});
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,6 +76,11 @@ namespace PharmacySystem.Client
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mode_Click(object sender, EventArgs e)
         {
 
         }
