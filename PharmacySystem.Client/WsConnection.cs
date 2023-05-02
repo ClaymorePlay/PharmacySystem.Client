@@ -27,7 +27,7 @@ namespace PharmacySystem.Client
             {
                 var token = await GetToken();
 
-                Uri endpointUri = new Uri($"wss://localhost:44356/ws?token={token ?? Guid.NewGuid().ToString()}");
+                Uri endpointUri = new Uri($"wss://localhost:7172/ws?token={token ?? Guid.NewGuid().ToString()}");
 
                 _weClient.Options.KeepAliveInterval = TimeSpan.FromSeconds(120);
                 await _weClient.ConnectAsync(endpointUri, CancellationToken.None);
@@ -83,9 +83,9 @@ namespace PharmacySystem.Client
         /// <returns></returns>
         private static async Task<string?> GetToken()
         {
-            if (File.Exists("./token.txt"))
+            if (File.Exists("./session.txt"))
             {
-                var text = await File.ReadAllTextAsync("./token.txt");
+                var text = await File.ReadAllTextAsync("./session.txt");
                 return text;
             }
             return null;

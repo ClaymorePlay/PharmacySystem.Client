@@ -16,9 +16,9 @@ namespace PharmacySystem.Client
 {
     public partial class LoginForm : Form
     {
-        private Form1 form1 { get; set; }
+        private MainForm form1 { get; set; }
 
-        public LoginForm(Form1 form)
+        public LoginForm(MainForm form)
         {
             InitializeComponent();
             form1 = form;
@@ -47,8 +47,23 @@ namespace PharmacySystem.Client
             mode.Text = login.value?.Role.ToString() ?? mode.Text;
 
             if (login?.value?.UserId != null)
+            {
+                await File.WriteAllTextAsync("./session.txt", login.value.Token.ToString());
                 Close();
-            
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            var register = WsConnection.SendAndWaitResponse<WsResponse<RegisterResponse>>(new WsRequest
+            {
+
+            });
         }
     }
 }

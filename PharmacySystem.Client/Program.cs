@@ -20,7 +20,7 @@ namespace PharmacySystem.Client
             ApplicationConfiguration.Initialize();
             await WsConnection.Start();
 
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
             //Thread.Sleep(99999);
         }
     }

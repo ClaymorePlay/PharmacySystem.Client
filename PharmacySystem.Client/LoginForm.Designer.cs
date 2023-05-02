@@ -28,76 +28,220 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Ender = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Password = new System.Windows.Forms.TextBox();
-            this.ProductIdTitle = new System.Windows.Forms.Label();
-            this.Email = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
+            Ender = new Button();
+            label1 = new Label();
+            Password = new TextBox();
+            ProductIdTitle = new Label();
+            Email = new TextBox();
+            tabControl1 = new TabControl();
+            EnterPage = new TabPage();
+            RegisterPage = new TabPage();
+            EmailField = new TextBox();
+            RegisterButton = new Button();
+            PasswordLable = new Label();
+            PasswordField = new TextBox();
+            EmailLable = new Label();
+            FullNameLable = new Label();
+            NameField = new TextBox();
+            ConfirmPasswordLable = new Label();
+            ConfirmPasswordField = new TextBox();
+            tabControl1.SuspendLayout();
+            EnterPage.SuspendLayout();
+            RegisterPage.SuspendLayout();
+            SuspendLayout();
             // 
             // Ender
             // 
-            this.Ender.Location = new System.Drawing.Point(331, 282);
-            this.Ender.Name = "Ender";
-            this.Ender.Size = new System.Drawing.Size(75, 23);
-            this.Ender.TabIndex = 0;
-            this.Ender.Text = "Enter";
-            this.Ender.UseVisualStyleBackColor = true;
-            this.Ender.Click += new System.EventHandler(this.Ender_Click);
+            Ender.Location = new Point(281, 204);
+            Ender.Name = "Ender";
+            Ender.Size = new Size(75, 23);
+            Ender.TabIndex = 0;
+            Ender.Text = "Enter";
+            Ender.UseVisualStyleBackColor = true;
+            Ender.Click += Ender_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(227, 145);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 15);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Пароль";
+            label1.AutoSize = true;
+            label1.Location = new Point(207, 143);
+            label1.Name = "label1";
+            label1.Size = new Size(49, 15);
+            label1.TabIndex = 11;
+            label1.Text = "Пароль";
             // 
             // Password
             // 
-            this.Password.AcceptsReturn = true;
-            this.Password.Location = new System.Drawing.Point(331, 142);
-            this.Password.Name = "Password";
-            this.Password.PlaceholderText = "Password";
-            this.Password.Size = new System.Drawing.Size(100, 23);
-            this.Password.TabIndex = 10;
-            this.Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            Password.AcceptsReturn = true;
+            Password.Location = new Point(271, 135);
+            Password.Name = "Password";
+            Password.PlaceholderText = "Password";
+            Password.Size = new Size(100, 23);
+            Password.TabIndex = 10;
+            Password.TextAlign = HorizontalAlignment.Center;
             // 
             // ProductIdTitle
             // 
-            this.ProductIdTitle.AutoSize = true;
-            this.ProductIdTitle.Location = new System.Drawing.Point(227, 107);
-            this.ProductIdTitle.Name = "ProductIdTitle";
-            this.ProductIdTitle.Size = new System.Drawing.Size(41, 15);
-            this.ProductIdTitle.TabIndex = 9;
-            this.ProductIdTitle.Text = "Почта";
-            this.ProductIdTitle.Click += new System.EventHandler(this.ProductIdTitle_Click);
+            ProductIdTitle.AutoSize = true;
+            ProductIdTitle.Location = new Point(207, 92);
+            ProductIdTitle.Name = "ProductIdTitle";
+            ProductIdTitle.Size = new Size(41, 15);
+            ProductIdTitle.TabIndex = 9;
+            ProductIdTitle.Text = "Почта";
+            ProductIdTitle.Click += ProductIdTitle_Click;
             // 
             // Email
             // 
-            this.Email.Location = new System.Drawing.Point(331, 104);
-            this.Email.Name = "Email";
-            this.Email.PlaceholderText = "Email";
-            this.Email.Size = new System.Drawing.Size(100, 23);
-            this.Email.TabIndex = 8;
-            this.Email.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            Email.Location = new Point(271, 89);
+            Email.Name = "Email";
+            Email.PlaceholderText = "Email";
+            Email.Size = new Size(100, 23);
+            Email.TabIndex = 8;
+            Email.TextAlign = HorizontalAlignment.Center;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(EnterPage);
+            tabControl1.Controls.Add(RegisterPage);
+            tabControl1.Location = new Point(50, 12);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(648, 347);
+            tabControl1.TabIndex = 12;
+            // 
+            // EnterPage
+            // 
+            EnterPage.Controls.Add(Email);
+            EnterPage.Controls.Add(Ender);
+            EnterPage.Controls.Add(label1);
+            EnterPage.Controls.Add(Password);
+            EnterPage.Controls.Add(ProductIdTitle);
+            EnterPage.Location = new Point(4, 24);
+            EnterPage.Name = "EnterPage";
+            EnterPage.Padding = new Padding(3);
+            EnterPage.Size = new Size(640, 319);
+            EnterPage.TabIndex = 0;
+            EnterPage.Text = "Вход";
+            EnterPage.UseVisualStyleBackColor = true;
+            // 
+            // RegisterPage
+            // 
+            RegisterPage.Controls.Add(ConfirmPasswordLable);
+            RegisterPage.Controls.Add(ConfirmPasswordField);
+            RegisterPage.Controls.Add(FullNameLable);
+            RegisterPage.Controls.Add(NameField);
+            RegisterPage.Controls.Add(EmailField);
+            RegisterPage.Controls.Add(RegisterButton);
+            RegisterPage.Controls.Add(PasswordLable);
+            RegisterPage.Controls.Add(PasswordField);
+            RegisterPage.Controls.Add(EmailLable);
+            RegisterPage.Location = new Point(4, 24);
+            RegisterPage.Name = "RegisterPage";
+            RegisterPage.Padding = new Padding(3);
+            RegisterPage.Size = new Size(640, 319);
+            RegisterPage.TabIndex = 1;
+            RegisterPage.Text = "Регистрация";
+            RegisterPage.UseVisualStyleBackColor = true;
+            // 
+            // EmailField
+            // 
+            EmailField.Location = new Point(302, 90);
+            EmailField.Name = "EmailField";
+            EmailField.PlaceholderText = "Email";
+            EmailField.Size = new Size(100, 23);
+            EmailField.TabIndex = 13;
+            EmailField.TextAlign = HorizontalAlignment.Center;
+            // 
+            // RegisterButton
+            // 
+            RegisterButton.Location = new Point(315, 225);
+            RegisterButton.Name = "RegisterButton";
+            RegisterButton.Size = new Size(75, 23);
+            RegisterButton.TabIndex = 12;
+            RegisterButton.Text = "Register";
+            RegisterButton.UseVisualStyleBackColor = true;
+            RegisterButton.Click += RegisterButton_Click;
+            // 
+            // PasswordLable
+            // 
+            PasswordLable.AutoSize = true;
+            PasswordLable.Location = new Point(238, 132);
+            PasswordLable.Name = "PasswordLable";
+            PasswordLable.Size = new Size(49, 15);
+            PasswordLable.TabIndex = 16;
+            PasswordLable.Text = "Пароль";
+            PasswordLable.Click += label2_Click;
+            // 
+            // PasswordField
+            // 
+            PasswordField.AcceptsReturn = true;
+            PasswordField.Location = new Point(302, 129);
+            PasswordField.Name = "PasswordField";
+            PasswordField.PlaceholderText = "Password";
+            PasswordField.Size = new Size(100, 23);
+            PasswordField.TabIndex = 15;
+            PasswordField.TextAlign = HorizontalAlignment.Center;
+            // 
+            // EmailLable
+            // 
+            EmailLable.AutoSize = true;
+            EmailLable.Location = new Point(238, 93);
+            EmailLable.Name = "EmailLable";
+            EmailLable.Size = new Size(41, 15);
+            EmailLable.TabIndex = 14;
+            EmailLable.Text = "Почта";
+            // 
+            // FullNameLable
+            // 
+            FullNameLable.AutoSize = true;
+            FullNameLable.Location = new Point(248, 52);
+            FullNameLable.Name = "FullNameLable";
+            FullNameLable.Size = new Size(31, 15);
+            FullNameLable.TabIndex = 18;
+            FullNameLable.Text = "Имя";
+            // 
+            // NameField
+            // 
+            NameField.AcceptsReturn = true;
+            NameField.Location = new Point(302, 49);
+            NameField.Name = "NameField";
+            NameField.PlaceholderText = "Name";
+            NameField.Size = new Size(100, 23);
+            NameField.TabIndex = 17;
+            NameField.TextAlign = HorizontalAlignment.Center;
+            // 
+            // ConfirmPasswordLable
+            // 
+            ConfirmPasswordLable.AutoSize = true;
+            ConfirmPasswordLable.Location = new Point(150, 170);
+            ConfirmPasswordLable.Name = "ConfirmPasswordLable";
+            ConfirmPasswordLable.Size = new Size(137, 15);
+            ConfirmPasswordLable.TabIndex = 20;
+            ConfirmPasswordLable.Text = "Подтверждение пароля";
+            // 
+            // ConfirmPasswordField
+            // 
+            ConfirmPasswordField.AcceptsReturn = true;
+            ConfirmPasswordField.Location = new Point(302, 167);
+            ConfirmPasswordField.Name = "ConfirmPasswordField";
+            ConfirmPasswordField.PlaceholderText = "Password";
+            ConfirmPasswordField.Size = new Size(100, 23);
+            ConfirmPasswordField.TabIndex = 19;
+            ConfirmPasswordField.TextAlign = HorizontalAlignment.Center;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Password);
-            this.Controls.Add(this.ProductIdTitle);
-            this.Controls.Add(this.Email);
-            this.Controls.Add(this.Ender);
-            this.Name = "LoginForm";
-            this.Text = "LoginForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(tabControl1);
+            Name = "LoginForm";
+            Text = "LoginForm";
+            tabControl1.ResumeLayout(false);
+            EnterPage.ResumeLayout(false);
+            EnterPage.PerformLayout();
+            RegisterPage.ResumeLayout(false);
+            RegisterPage.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -107,5 +251,17 @@
         private TextBox Password;
         private Label ProductIdTitle;
         private TextBox Email;
+        private TabControl tabControl1;
+        private TabPage EnterPage;
+        private TabPage RegisterPage;
+        private TextBox EmailField;
+        private Button RegisterButton;
+        private Label PasswordLable;
+        private TextBox PasswordField;
+        private Label EmailLable;
+        private Label ConfirmPasswordLable;
+        private TextBox ConfirmPasswordField;
+        private Label FullNameLable;
+        private TextBox NameField;
     }
 }
