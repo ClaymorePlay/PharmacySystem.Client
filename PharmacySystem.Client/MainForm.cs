@@ -29,11 +29,11 @@ namespace PharmacySystem.Client
                     value = null
                 });
 
-                if (currentUser.value?.UserId == null)
-                {
-                    var roms = new LoginForm(this);
-                    roms.Show();
-                }
+                //if (currentUser.value?.UserId == null)
+                //{
+                //    var roms = new LoginForm(this);
+                //    roms.Show();
+                //}
             }
             catch (Exception ex)
             {

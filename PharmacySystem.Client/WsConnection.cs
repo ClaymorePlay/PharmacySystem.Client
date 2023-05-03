@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using CodeEngine.WebSocket.Models.User;
+using GaneshaProgramming.Plugins.User.IServices.Models.Response;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PharmacySystem.Client.Models;
 using System;
@@ -16,6 +18,8 @@ namespace PharmacySystem.Client
     public static class WsConnection
     {
         public static ClientWebSocket _weClient = new ClientWebSocket();
+
+        public static GetUserResponse? User { get; set; }
 
         /// <summary>
         /// Запуск соединения

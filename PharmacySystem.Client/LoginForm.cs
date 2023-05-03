@@ -16,12 +16,10 @@ namespace PharmacySystem.Client
 {
     public partial class LoginForm : Form
     {
-        private MainForm form1 { get; set; }
 
-        public LoginForm(MainForm form)
+        public LoginForm()
         {
             InitializeComponent();
-            form1 = form;
         }
 
 
@@ -29,6 +27,31 @@ namespace PharmacySystem.Client
         private void ProductIdTitle_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private async void RegisterButton_Click(object sender, EventArgs e)
+        {
+            var register = await WsConnection.SendAndWaitResponse<WsResponse<RegisterResponse>>(new WsRequest
+            {
+                controller = "UserService",
+                method = "Register",
+                value = JsonConvert.SerializeObject(new RegisterRequest
+                {
+                    UserName = NameField.Text,
+                    Email = EmailField.Text,
+                    Password = PasswordField.Text,
+                    ConfirmPassword = ConfirmPasswordField.Text
+                })
+            });
+
+            RegisterResponseInfo.Text = register.ErrorMessage ?? "Регистрация прошла успешно!";
         }
 
         private async void Ender_Click(object sender, EventArgs e)
@@ -43,27 +66,23 @@ namespace PharmacySystem.Client
                     Password = Password.Text
                 })
             });
-            var mode = form1.Controls["Mode"];
-            mode.Text = login.value?.Role.ToString() ?? mode.Text;
 
-            if (login?.value?.UserId != null)
+            if (login.value?.UserId != null && login.ErrorMessage == null)
             {
+                WsConnection.User = new GaneshaProgramming.Plugins.User.IServices.Models.Response.GetUserResponse
+                {
+                    Email = login.value.UserName,
+                    Role = (GaneshaProgramming.Plugins.User.IServices.Models.Enum.RoleEnum)login.value.Role,
+                    UserId = login.value.UserId,
+                    UserName = login.value.UserName
+                };
+
                 await File.WriteAllTextAsync("./session.txt", login.value.Token.ToString());
+
+                new MainForm().Show();
+
                 Close();
             }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RegisterButton_Click(object sender, EventArgs e)
-        {
-            var register = WsConnection.SendAndWaitResponse<WsResponse<RegisterResponse>>(new WsRequest
-            {
-
-            });
         }
     }
 }
