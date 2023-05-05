@@ -1,4 +1,5 @@
 ﻿using CodeEngine.WebSocket.Models.User;
+using GaneshaProgramming.Plugins.User.IServices.Models.Request;
 using GaneshaProgramming.Plugins.User.IServices.Models.Response;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -25,7 +26,7 @@ namespace PharmacySystem.Client
         /// Запуск соединения
         /// </summary>
         /// <returns></returns>
-        public static async Task Start()
+        public static async Task<Form> Start()
         {
             try
             {
@@ -35,10 +36,29 @@ namespace PharmacySystem.Client
 
                 _weClient.Options.KeepAliveInterval = TimeSpan.FromSeconds(120);
                 await _weClient.ConnectAsync(endpointUri, CancellationToken.None);
+
+                if (token == null)
+                    return new LoginForm();
+                else
+                {
+                    var currentUser = await SendAndWaitResponse<GetCurrentUserResponse>(new WsRequest
+                    {
+                        controller = "UserService",
+                        method = "GetCurrentUser",
+                    });
+                    WsConnection.User = new GetUserResponse
+                    {
+                        UserId = currentUser.value?.UserId ?? 0,
+                        Email = currentUser.value?.Email ?? "",
+                        Role = currentUser.value?.Role ?? GaneshaProgramming.Plugins.User.IServices.Models.Enum.RoleEnum.User,
+                        UserName = currentUser.value?.UserName ?? ""
+                    };
+                    return new MainForm();
+                }
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
         }
 

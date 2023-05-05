@@ -18,9 +18,12 @@ namespace PharmacySystem.Client
         static async Task Main()
         {
             ApplicationConfiguration.Initialize();
-            await WsConnection.Start();
 
-            Application.Run(new LoginForm());
+
+            var resp = await WsConnection.Start();
+            Application.Run(resp);
+
+
             //Thread.Sleep(99999);
         }
     }
