@@ -424,7 +424,7 @@ namespace PharmacySystem.Client
                     method = "RemoveProducer",
                     value = JsonConvert.SerializeObject(new RemoveProducerRequest
                     {
-                        Id = Convert.ToInt32(DeleteProducerFieldId)
+                        Id = Convert.ToInt32(DeleteProducerFieldId.Text)
                     })
                 });
 

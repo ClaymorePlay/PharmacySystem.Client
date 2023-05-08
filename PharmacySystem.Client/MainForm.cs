@@ -15,7 +15,7 @@ namespace PharmacySystem.Client
     {
         private Dictionary<string, int> pharmacyCollection { get; set; } = new Dictionary<string, int>();
         private Dictionary<string, int> producerCollection { get; set; } = new Dictionary<string, int>();
-        private BucketForm _bucketForm { get; set; } = new BucketForm();
+        private static BucketForm _bucketForm { get; set; } = new BucketForm();
 
         public MainForm()
         {
@@ -24,10 +24,7 @@ namespace PharmacySystem.Client
             Mode.Text = WsConnection.User?.Role.ToString() ?? "";
         }
 
-        private async void GetProductList()
-        {
-            
-        }
+      
 
         private async void Administration_Click(object sender, EventArgs e)
         {
@@ -46,16 +43,7 @@ namespace PharmacySystem.Client
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void Order_Click(object sender, EventArgs e)
         {
             //var productId = this.ProductId.Text;
@@ -70,35 +58,7 @@ namespace PharmacySystem.Client
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Mode_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Mode_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProductList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private async void GetProductsButton_Click(object sender, EventArgs e)
         {
@@ -128,51 +88,7 @@ namespace PharmacySystem.Client
                     dataGridView1.Rows.Add(item.ProductName, item.ProductId, item.PharmacyName, item.ProducerName, item.Price, item.Count);            
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OrderButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PharmacyId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OrderCount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProductId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProductIdTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void SelectPharmacy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+       
         private async void PharmacyGetButton_Click(object sender, EventArgs e)
         {
             pharmacyCollection.Clear();
@@ -200,10 +116,7 @@ namespace PharmacySystem.Client
                 }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
         private async void ProducerGetButton_Click(object sender, EventArgs e)
         {
@@ -241,10 +154,7 @@ namespace PharmacySystem.Client
             }
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void OpenBucket_Click(object sender, EventArgs e)
         {

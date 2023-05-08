@@ -28,101 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BucketProductsList = new System.Windows.Forms.DataGridView();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Buy = new System.Windows.Forms.Button();
-            this.PriceResult = new System.Windows.Forms.Label();
-            this.SumPrice = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.BucketProductsList)).BeginInit();
-            this.SuspendLayout();
+            BucketProductsList = new DataGridView();
+            NameColumn = new DataGridViewTextBoxColumn();
+            CountColumn = new DataGridViewTextBoxColumn();
+            ProductId = new DataGridViewTextBoxColumn();
+            PriceColumn = new DataGridViewTextBoxColumn();
+            Buy = new Button();
+            PriceResult = new Label();
+            SumPrice = new Label();
+            ((System.ComponentModel.ISupportInitialize)BucketProductsList).BeginInit();
+            SuspendLayout();
             // 
             // BucketProductsList
             // 
-            this.BucketProductsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.BucketProductsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameColumn,
-            this.CountColumn,
-            this.ProductId,
-            this.PriceColumn});
-            this.BucketProductsList.Location = new System.Drawing.Point(12, 12);
-            this.BucketProductsList.Name = "BucketProductsList";
-            this.BucketProductsList.ReadOnly = true;
-            this.BucketProductsList.RowTemplate.Height = 25;
-            this.BucketProductsList.Size = new System.Drawing.Size(450, 386);
-            this.BucketProductsList.TabIndex = 0;
-            this.BucketProductsList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BucketProductsList_CellContentClick);
+            BucketProductsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BucketProductsList.Columns.AddRange(new DataGridViewColumn[] { NameColumn, CountColumn, ProductId, PriceColumn });
+            BucketProductsList.Location = new Point(12, 12);
+            BucketProductsList.Name = "BucketProductsList";
+            BucketProductsList.ReadOnly = true;
+            BucketProductsList.RowTemplate.Height = 25;
+            BucketProductsList.Size = new Size(450, 386);
+            BucketProductsList.TabIndex = 0;
+            BucketProductsList.RowsAdded += BucketProductsList_RowsUpdated;
+            BucketProductsList.RowsRemoved += BucketProductsList_RowsUpdated;
             // 
             // NameColumn
             // 
-            this.NameColumn.HeaderText = "Название товара";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
+            NameColumn.HeaderText = "Название товара";
+            NameColumn.Name = "NameColumn";
+            NameColumn.ReadOnly = true;
             // 
             // CountColumn
             // 
-            this.CountColumn.HeaderText = "Количество";
-            this.CountColumn.Name = "CountColumn";
-            this.CountColumn.ReadOnly = true;
+            CountColumn.HeaderText = "Количество";
+            CountColumn.Name = "CountColumn";
+            CountColumn.ReadOnly = true;
             // 
             // ProductId
             // 
-            this.ProductId.HeaderText = "Номер товара";
-            this.ProductId.Name = "ProductId";
-            this.ProductId.ReadOnly = true;
+            ProductId.HeaderText = "Номер товара";
+            ProductId.Name = "ProductId";
+            ProductId.ReadOnly = true;
             // 
             // PriceColumn
             // 
-            this.PriceColumn.HeaderText = "Цена";
-            this.PriceColumn.Name = "PriceColumn";
-            this.PriceColumn.ReadOnly = true;
+            PriceColumn.HeaderText = "Цена";
+            PriceColumn.Name = "PriceColumn";
+            PriceColumn.ReadOnly = true;
             // 
             // Buy
             // 
-            this.Buy.BackColor = System.Drawing.Color.Green;
-            this.Buy.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.Buy.Location = new System.Drawing.Point(570, 90);
-            this.Buy.Name = "Buy";
-            this.Buy.Size = new System.Drawing.Size(75, 23);
-            this.Buy.TabIndex = 1;
-            this.Buy.Text = "Купить";
-            this.Buy.UseVisualStyleBackColor = false;
+            Buy.BackColor = Color.Green;
+            Buy.ForeColor = SystemColors.ControlLight;
+            Buy.Location = new Point(570, 90);
+            Buy.Name = "Buy";
+            Buy.Size = new Size(75, 23);
+            Buy.TabIndex = 1;
+            Buy.Text = "Купить";
+            Buy.UseVisualStyleBackColor = false;
+            Buy.Click += BuyClickEvent;
             // 
             // PriceResult
             // 
-            this.PriceResult.AutoSize = true;
-            this.PriceResult.Location = new System.Drawing.Point(570, 55);
-            this.PriceResult.Name = "PriceResult";
-            this.PriceResult.Size = new System.Drawing.Size(73, 15);
-            this.PriceResult.TabIndex = 2;
-            this.PriceResult.Text = "Стоимость: ";
-            this.PriceResult.Click += new System.EventHandler(this.PriceResult_Click);
+            PriceResult.AutoSize = true;
+            PriceResult.Location = new Point(570, 55);
+            PriceResult.Name = "PriceResult";
+            PriceResult.Size = new Size(73, 15);
+            PriceResult.TabIndex = 2;
+            PriceResult.Text = "Стоимость: ";
             // 
             // SumPrice
             // 
-            this.SumPrice.AutoSize = true;
-            this.SumPrice.Location = new System.Drawing.Point(586, 72);
-            this.SumPrice.Name = "SumPrice";
-            this.SumPrice.Size = new System.Drawing.Size(0, 15);
-            this.SumPrice.TabIndex = 3;
+            SumPrice.AutoSize = true;
+            SumPrice.Location = new Point(586, 72);
+            SumPrice.Name = "SumPrice";
+            SumPrice.Size = new Size(0, 15);
+            SumPrice.TabIndex = 3;
             // 
             // BucketForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.SumPrice);
-            this.Controls.Add(this.PriceResult);
-            this.Controls.Add(this.Buy);
-            this.Controls.Add(this.BucketProductsList);
-            this.Name = "BucketForm";
-            this.Text = "BucketForm";
-            ((System.ComponentModel.ISupportInitialize)(this.BucketProductsList)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(SumPrice);
+            Controls.Add(PriceResult);
+            Controls.Add(Buy);
+            Controls.Add(BucketProductsList);
+            Name = "BucketForm";
+            Text = "BucketForm";
+            Load += BucketForm_Load;
+            this.FormClosed += new FormClosedEventHandler(this.CloseBucket);
+            ((System.ComponentModel.ISupportInitialize)BucketProductsList).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

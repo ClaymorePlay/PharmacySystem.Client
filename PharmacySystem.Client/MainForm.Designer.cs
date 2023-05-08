@@ -84,7 +84,6 @@
             this.Mode.Name = "Mode";
             this.Mode.Size = new System.Drawing.Size(0, 15);
             this.Mode.TabIndex = 9;
-            this.Mode.Click += new System.EventHandler(this.Mode_Click_1);
             // 
             // NameInfo
             // 
@@ -94,7 +93,6 @@
             this.NameInfo.Name = "NameInfo";
             this.NameInfo.Size = new System.Drawing.Size(0, 15);
             this.NameInfo.TabIndex = 12;
-            this.NameInfo.Click += new System.EventHandler(this.label4_Click);
             // 
             // dataGridView1
             // 
@@ -114,7 +112,6 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(650, 197);
             this.dataGridView1.TabIndex = 13;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // NameColumn
             // 
@@ -171,7 +168,6 @@
             this.SelectPharmacy.Name = "SelectPharmacy";
             this.SelectPharmacy.Size = new System.Drawing.Size(173, 23);
             this.SelectPharmacy.TabIndex = 15;
-            this.SelectPharmacy.SelectedIndexChanged += new System.EventHandler(this.SelectPharmacy_SelectedIndexChanged);
             // 
             // PharmacyGetButton
             // 
@@ -261,7 +257,6 @@
             this.label10.Size = new System.Drawing.Size(60, 15);
             this.label10.TabIndex = 25;
             this.label10.Text = "Страница";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // PageField
             // 
@@ -294,8 +289,7 @@
             this.Controls.Add(this.ErrorMessage);
             this.Controls.Add(this.Administration);
             this.Name = "MainForm";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
