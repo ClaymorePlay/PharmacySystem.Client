@@ -205,7 +205,7 @@
             this.InTrashButton.TabIndex = 19;
             this.InTrashButton.Text = "В корзину";
             this.InTrashButton.UseVisualStyleBackColor = true;
-            this.InTrashButton.Click += new System.EventHandler(this.InTrashButton_Click);
+            this.InTrashButton.Click += new System.EventHandler(this.InBucketButton_Click);
             // 
             // CountField
             // 

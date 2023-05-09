@@ -13,9 +13,20 @@ namespace PharmacySystem.Client
 {
     public partial class MainForm : Form
     {
-        private Dictionary<string, int> pharmacyCollection { get; set; } = new Dictionary<string, int>();
-        private Dictionary<string, int> producerCollection { get; set; } = new Dictionary<string, int>();
-        private static BucketForm _bucketForm { get; set; } = new BucketForm();
+        /// <summary>
+        /// Словарь аптек соотношение номера аптеки и названия
+        /// </summary>
+        private Dictionary<int, string> pharmacyCollection { get; set; } = new Dictionary<int,string>();
+
+        /// <summary>
+        /// Словарь производителей, соотношение номера производителя и названия
+        /// </summary>
+        private Dictionary<int, string> producerCollection { get; set; } = new Dictionary<int, string>();
+
+        /// <summary>
+        /// Форма корзины
+        /// </summary>
+        private BucketForm _bucketForm { get; set; } = new BucketForm();
 
         public MainForm()
         {
@@ -25,35 +36,20 @@ namespace PharmacySystem.Client
         }
 
       
-
-        private async void Administration_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var currentUser = await WsConnection.SendAndWaitResponse<GetCurrentUserResponse>(new WsRequest
-                {
-                    controller = "UserService",
-                    method = "GetCurrentUser",
-                    value = null
-                });
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-      
   
 
       
-
+        /// <summary>
+        /// Полуение товаров
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void GetProductsButton_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
 
-            var pharmacyValid = pharmacyCollection.TryGetValue(SelectPharmacy.Text, out var pharmacy);
-            var producerValid = producerCollection.TryGetValue(SelectProducers.Text, out var producer);
+            var pharmacyValid = pharmacyCollection.FirstOrDefault(c => c.Value == SelectPharmacy.Text);
+            var producerValid = producerCollection.FirstOrDefault(c=> c.Value == SelectProducers.Text);
 
             var products = await WsConnection.SendAndWaitResponse<GetProductsListResponse>(new WsRequest
             {
@@ -66,8 +62,8 @@ namespace PharmacySystem.Client
                         Take = 10,
                         Skip = String.IsNullOrWhiteSpace(PageField.Text) ? 0 : (Convert.ToInt32(PageField.Text) - 1) * 10
                     },
-                    PharmacyId = pharmacyValid ? pharmacy : null,
-                    ProducerId = producerValid ? producer : null
+                    PharmacyId = pharmacyValid.Value == null ? null : pharmacyValid.Key,
+                    ProducerId = producerValid.Value == null ? null : producerValid.Key
                 })
             });
 
@@ -76,7 +72,11 @@ namespace PharmacySystem.Client
                     dataGridView1.Rows.Add(item.ProductName, item.ProductId, item.PharmacyName, item.ProducerName, item.Price, item.Count);            
         }
 
-       
+       /// <summary>
+       /// Получение аптек
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private async void PharmacyGetButton_Click(object sender, EventArgs e)
         {
             pharmacyCollection.Clear();
@@ -99,13 +99,17 @@ namespace PharmacySystem.Client
             if(pharmacies.value != null)
                 foreach (var item in pharmacies.value.PharmacyList)
                 {
-                    pharmacyCollection.Add(item.Name, item.Id);
+                    pharmacyCollection.Add(item.Id, item.Name);
                     SelectPharmacy.Items.Add(item.Name);
                 }
         }
 
         
-
+        /// <summary>
+        /// Полуение производителей
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void ProducerGetButton_Click(object sender, EventArgs e)
         {
             producerCollection.Clear();
@@ -128,11 +132,16 @@ namespace PharmacySystem.Client
             if (producers.value != null)
                 foreach (var item in producers.value.Items)
                 {
-                    producerCollection.Add(item.Name, item.Id);
+                    producerCollection.Add(item.Id, item.Name);
                     SelectProducers.Items.Add(item.Name);
                 }
         }
 
+        /// <summary>
+        /// Отображение формы администратора
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Administration_Click_1(object sender, EventArgs e)
         {
             if (WsConnection.User?.Role == GaneshaProgramming.Plugins.User.IServices.Models.Enum.RoleEnum.Admin)
@@ -143,13 +152,22 @@ namespace PharmacySystem.Client
         }
 
  
-
+        /// <summary>
+        /// Открытие формы корзины
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenBucket_Click(object sender, EventArgs e)
         {
             _bucketForm.Show();
         }
 
-        private async void InTrashButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Добавление товара в корзину
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void InBucketButton_Click(object sender, EventArgs e)
         {
             try
             {

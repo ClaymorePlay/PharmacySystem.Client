@@ -32,16 +32,11 @@ namespace PharmacySystem.Client
             UpdateEmployeeFieldGender.Items.AddRange(Enum.GetValues<GenderEnum>().Select(c => c.ToString()).ToArray());
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AdminForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Добавление производителя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void AddProducerButton_Click(object sender, EventArgs e)
         {
             try
@@ -67,6 +62,11 @@ namespace PharmacySystem.Client
             }
         }
 
+        /// <summary>
+        /// Добавление аптеки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void AddPharmacyButton_Click(object sender, EventArgs e)
         {
             try
@@ -94,11 +94,12 @@ namespace PharmacySystem.Client
             }
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+     
+        /// <summary>
+        /// Добавление сотрудника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void AddEmployeeButton_Click(object sender, EventArgs e)
         {
             try
@@ -127,11 +128,12 @@ namespace PharmacySystem.Client
             }
         }
 
-        private void EmployeeFieldGender_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+   
+        /// <summary>
+        /// Добавление товара
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void AddProductButton_Click(object sender, EventArgs e)
         {
             try
@@ -162,61 +164,11 @@ namespace PharmacySystem.Client
             }
         }
 
-        private void dsfs_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UpdateProducerFieldName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label26_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label25_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label24_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UpdateProductFieldName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UpdateProductFieldCount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label27_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Обновление производителя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void UpdateProducerButton_Click(object sender, EventArgs e)
         {
             try
@@ -243,6 +195,11 @@ namespace PharmacySystem.Client
             }
         }
 
+        /// <summary>
+        /// Обновление товара
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void UpdateProductButton_Click(object sender, EventArgs e)
         {
             try
@@ -272,6 +229,11 @@ namespace PharmacySystem.Client
             }
         }
 
+        /// <summary>
+        /// Обновление аптеки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void UpdatePharmacyButton_Click(object sender, EventArgs e)
         {
             try
@@ -300,6 +262,11 @@ namespace PharmacySystem.Client
             }
         }
 
+        /// <summary>
+        /// Обновление сотрудника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void UpdateEmployeeButton_Click(object sender, EventArgs e)
         {
             try
@@ -329,16 +296,11 @@ namespace PharmacySystem.Client
             }
         }
 
-        private void label41_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label40_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Удаление аптеки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void RemovePharmacyButton_Click(object sender, EventArgs e)
         {
             try
@@ -364,6 +326,11 @@ namespace PharmacySystem.Client
             }
         }
 
+        /// <summary>
+        /// Удаление сотрудника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void RemoveEmployeeButton_Click(object sender, EventArgs e)
         {
             try
@@ -389,6 +356,11 @@ namespace PharmacySystem.Client
             }
         }
 
+        /// <summary>
+        /// Удаление товара
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void RemoveProductButton_Click(object sender, EventArgs e)
         {
             try
@@ -414,6 +386,11 @@ namespace PharmacySystem.Client
             }
         }
 
+        /// <summary>
+        /// Удаление произодителя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void RemoveProducerButton_Click(object sender, EventArgs e)
         {
             try
@@ -439,16 +416,11 @@ namespace PharmacySystem.Client
             }
         }
 
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Получение товаров
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void GetProductsButton_Click(object sender, EventArgs e)
         {
             try
@@ -483,32 +455,11 @@ namespace PharmacySystem.Client
                 ConsoleInfo.Items.Add(ex.Message + " " + DateTime.Now);
             }
         }
-
-        private void GetTab_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label54_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Получение аптек
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void GetPharmacyButton_Click(object sender, EventArgs e)
         {
             try
@@ -540,42 +491,11 @@ namespace PharmacySystem.Client
                 ConsoleInfo.Items.Add(ex.Message + " " + DateTime.Now);
             }
         }
-
-        private void GetPharmacyNameField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label53_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void GetProducerNameField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label56_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label55_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GetProducerPageField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Получение производителей
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void GetProducersButton_Click(object sender, EventArgs e)
         {
             try
@@ -607,22 +527,11 @@ namespace PharmacySystem.Client
                 ConsoleInfo.Items.Add(ex.Message + " " + DateTime.Now);
             }
         }
-
-        private void textBox3_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label59_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Получение сотрудников
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void GetEmployeesButton_Click(object sender, EventArgs e)
         {
             try

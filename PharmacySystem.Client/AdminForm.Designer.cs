@@ -415,7 +415,6 @@
             this.EmployeeFieldSalary.Name = "EmployeeFieldSalary";
             this.EmployeeFieldSalary.Size = new System.Drawing.Size(100, 23);
             this.EmployeeFieldSalary.TabIndex = 18;
-            this.EmployeeFieldSalary.TextChanged += new System.EventHandler(this.EmployeeFieldGender_TextChanged);
             // 
             // EmployeeFieldFullName
             // 
@@ -478,7 +477,6 @@
             this.ProductFieldDescription.Name = "ProductFieldDescription";
             this.ProductFieldDescription.Size = new System.Drawing.Size(100, 23);
             this.ProductFieldDescription.TabIndex = 10;
-            this.ProductFieldDescription.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // ProductFieldName
             // 
@@ -547,7 +545,6 @@
             this.PharmacyFieldName.Name = "PharmacyFieldName";
             this.PharmacyFieldName.Size = new System.Drawing.Size(100, 23);
             this.PharmacyFieldName.TabIndex = 2;
-            this.PharmacyFieldName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // PharmacyFieldAdress
             // 
@@ -825,7 +822,6 @@
             this.label27.Size = new System.Drawing.Size(35, 15);
             this.label27.TabIndex = 15;
             this.label27.Text = "Цена";
-            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // UpdateProductFieldPrice
             // 
@@ -842,7 +838,6 @@
             this.label26.Size = new System.Drawing.Size(72, 15);
             this.label26.TabIndex = 13;
             this.label26.Text = "Количество";
-            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // UpdateProductFieldCount
             // 
@@ -850,7 +845,6 @@
             this.UpdateProductFieldCount.Name = "UpdateProductFieldCount";
             this.UpdateProductFieldCount.Size = new System.Drawing.Size(100, 23);
             this.UpdateProductFieldCount.TabIndex = 12;
-            this.UpdateProductFieldCount.TextChanged += new System.EventHandler(this.UpdateProductFieldCount_TextChanged);
             // 
             // UpdateProductButton
             // 
@@ -870,7 +864,6 @@
             this.label24.Size = new System.Drawing.Size(59, 15);
             this.label24.TabIndex = 10;
             this.label24.Text = "Название";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // label25
             // 
@@ -880,7 +873,6 @@
             this.label25.Size = new System.Drawing.Size(85, 15);
             this.label25.TabIndex = 9;
             this.label25.Text = "Номер товара";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // UpdateProductFieldName
             // 
@@ -888,7 +880,6 @@
             this.UpdateProductFieldName.Name = "UpdateProductFieldName";
             this.UpdateProductFieldName.Size = new System.Drawing.Size(100, 23);
             this.UpdateProductFieldName.TabIndex = 8;
-            this.UpdateProductFieldName.TextChanged += new System.EventHandler(this.UpdateProductFieldName_TextChanged);
             // 
             // UpdateProductFieldId
             // 
@@ -896,7 +887,6 @@
             this.UpdateProductFieldId.Name = "UpdateProductFieldId";
             this.UpdateProductFieldId.Size = new System.Drawing.Size(100, 23);
             this.UpdateProductFieldId.TabIndex = 7;
-            this.UpdateProductFieldId.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
             // 
             // label23
             // 
@@ -907,7 +897,6 @@
             this.label23.Size = new System.Drawing.Size(186, 25);
             this.label23.TabIndex = 6;
             this.label23.Text = "Обновление товара";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // label22
             // 
@@ -943,7 +932,6 @@
             this.UpdateProducerFieldName.Name = "UpdateProducerFieldName";
             this.UpdateProducerFieldName.Size = new System.Drawing.Size(100, 23);
             this.UpdateProducerFieldName.TabIndex = 2;
-            this.UpdateProducerFieldName.TextChanged += new System.EventHandler(this.UpdateProducerFieldName_TextChanged);
             // 
             // UpdateProducerFieldId
             // 
@@ -951,7 +939,6 @@
             this.UpdateProducerFieldId.Name = "UpdateProducerFieldId";
             this.UpdateProducerFieldId.Size = new System.Drawing.Size(100, 23);
             this.UpdateProducerFieldId.TabIndex = 1;
-            this.UpdateProducerFieldId.TextChanged += new System.EventHandler(this.dsfs_TextChanged);
             // 
             // UpdateProducerButton
             // 
@@ -1104,7 +1091,6 @@
             this.label40.Size = new System.Drawing.Size(85, 15);
             this.label40.TabIndex = 8;
             this.label40.Text = "Номер аптеки";
-            this.label40.Click += new System.EventHandler(this.label40_Click);
             // 
             // label41
             // 
@@ -1115,7 +1101,6 @@
             this.label41.Size = new System.Drawing.Size(159, 25);
             this.label41.TabIndex = 7;
             this.label41.Text = "Удаление аптеки";
-            this.label41.Click += new System.EventHandler(this.label41_Click);
             // 
             // DeletePharmacyFieldId
             // 
@@ -1174,7 +1159,6 @@
             this.GetTab.TabIndex = 3;
             this.GetTab.Text = "Получение";
             this.GetTab.UseVisualStyleBackColor = true;
-            this.GetTab.Click += new System.EventHandler(this.GetTab_Click);
             // 
             // GetProducersButton
             // 
@@ -1196,7 +1180,6 @@
             this.label55.Size = new System.Drawing.Size(59, 15);
             this.label55.TabIndex = 22;
             this.label55.Text = "Название";
-            this.label55.Click += new System.EventHandler(this.label55_Click);
             // 
             // GetProducerNameField
             // 
@@ -1204,7 +1187,6 @@
             this.GetProducerNameField.Name = "GetProducerNameField";
             this.GetProducerNameField.Size = new System.Drawing.Size(76, 23);
             this.GetProducerNameField.TabIndex = 21;
-            this.GetProducerNameField.TextChanged += new System.EventHandler(this.GetProducerNameField_TextChanged);
             // 
             // label56
             // 
@@ -1214,7 +1196,6 @@
             this.label56.Size = new System.Drawing.Size(60, 15);
             this.label56.TabIndex = 20;
             this.label56.Text = "Страница";
-            this.label56.Click += new System.EventHandler(this.label56_Click);
             // 
             // GetProducerPageField
             // 
@@ -1222,7 +1203,6 @@
             this.GetProducerPageField.Name = "GetProducerPageField";
             this.GetProducerPageField.Size = new System.Drawing.Size(59, 23);
             this.GetProducerPageField.TabIndex = 19;
-            this.GetProducerPageField.TextChanged += new System.EventHandler(this.GetProducerPageField_TextChanged);
             // 
             // ProducerList
             // 
@@ -1238,7 +1218,6 @@
             this.ProducerList.RowTemplate.Height = 25;
             this.ProducerList.Size = new System.Drawing.Size(231, 150);
             this.ProducerList.TabIndex = 18;
-            this.ProducerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -1272,7 +1251,6 @@
             this.label54.Size = new System.Drawing.Size(59, 15);
             this.label54.TabIndex = 16;
             this.label54.Text = "Название";
-            this.label54.Click += new System.EventHandler(this.label54_Click);
             // 
             // GetPharmacyNameField
             // 
@@ -1280,7 +1258,6 @@
             this.GetPharmacyNameField.Name = "GetPharmacyNameField";
             this.GetPharmacyNameField.Size = new System.Drawing.Size(100, 23);
             this.GetPharmacyNameField.TabIndex = 15;
-            this.GetPharmacyNameField.TextChanged += new System.EventHandler(this.GetPharmacyNameField_TextChanged);
             // 
             // label53
             // 
@@ -1290,7 +1267,6 @@
             this.label53.Size = new System.Drawing.Size(60, 15);
             this.label53.TabIndex = 14;
             this.label53.Text = "Страница";
-            this.label53.Click += new System.EventHandler(this.label53_Click);
             // 
             // GetPharmacyPageField
             // 
@@ -1298,7 +1274,6 @@
             this.GetPharmacyPageField.Name = "GetPharmacyPageField";
             this.GetPharmacyPageField.Size = new System.Drawing.Size(100, 23);
             this.GetPharmacyPageField.TabIndex = 13;
-            this.GetPharmacyPageField.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // PharmacyList
             // 
@@ -1316,7 +1291,6 @@
             this.PharmacyList.RowTemplate.Height = 25;
             this.PharmacyList.Size = new System.Drawing.Size(453, 150);
             this.PharmacyList.TabIndex = 12;
-            this.PharmacyList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1385,7 +1359,6 @@
             this.GetProductsProducerField.Name = "GetProductsProducerField";
             this.GetProductsProducerField.Size = new System.Drawing.Size(100, 23);
             this.GetProductsProducerField.TabIndex = 7;
-            this.GetProductsProducerField.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label50
             // 
@@ -1578,7 +1551,6 @@
             this.EmployeesList.RowTemplate.Height = 25;
             this.EmployeesList.Size = new System.Drawing.Size(541, 150);
             this.EmployeesList.TabIndex = 24;
-            this.EmployeesList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_2);
             // 
             // label59
             // 
@@ -1588,7 +1560,6 @@
             this.label59.Size = new System.Drawing.Size(85, 15);
             this.label59.TabIndex = 31;
             this.label59.Text = "Номер аптеки";
-            this.label59.Click += new System.EventHandler(this.label59_Click);
             // 
             // GetEmployeePharmacyIdField
             // 
@@ -1596,7 +1567,6 @@
             this.GetEmployeePharmacyIdField.Name = "GetEmployeePharmacyIdField";
             this.GetEmployeePharmacyIdField.Size = new System.Drawing.Size(100, 23);
             this.GetEmployeePharmacyIdField.TabIndex = 30;
-            this.GetEmployeePharmacyIdField.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1636,7 +1606,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
-            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.AddTab.ResumeLayout(false);
             this.AddTab.PerformLayout();

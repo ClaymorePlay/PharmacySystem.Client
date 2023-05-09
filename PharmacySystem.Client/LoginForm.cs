@@ -22,20 +22,11 @@ namespace PharmacySystem.Client
             InitializeComponent();
         }
 
-
-
-        private void ProductIdTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
+        /// <summary>
+        /// Регистрация
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void RegisterButton_Click(object sender, EventArgs e)
         {
             var register = await WsConnection.SendAndWaitResponse<WsResponse<RegisterResponse>>(new WsRequest
@@ -54,6 +45,11 @@ namespace PharmacySystem.Client
             RegisterResponseInfo.Text = register.ErrorMessage ?? "Регистрация прошла успешно!";
         }
 
+        /// <summary>
+        /// Вход пользователя. В случае успеха сохраняет токен и открывает главную форму
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Ender_Click(object sender, EventArgs e)
         {
             var login = await WsConnection.SendAndWaitResponse<LoginResponse>(new WsRequest

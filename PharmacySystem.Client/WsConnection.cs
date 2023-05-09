@@ -18,8 +18,14 @@ namespace PharmacySystem.Client
 {
     public static class WsConnection
     {
+        /// <summary>
+        /// Ws клиент
+        /// </summary>
         public static ClientWebSocket _weClient = new ClientWebSocket();
 
+        /// <summary>
+        /// Текущий пользователь
+        /// </summary>
         public static GetUserResponse? User { get; set; }
 
         /// <summary>
