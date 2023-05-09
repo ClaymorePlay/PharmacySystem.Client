@@ -44,19 +44,7 @@ namespace PharmacySystem.Client
         }
 
       
-        private void Order_Click(object sender, EventArgs e)
-        {
-            //var productId = this.ProductId.Text;
-            //var count = this.OrderCount.Text;
-            //var pharmacyId = this.PharmacyId.Text;
-
-            //if (String.IsNullOrWhiteSpace(productId) || String.IsNullOrWhiteSpace(count) || String.IsNullOrWhiteSpace(pharmacyId))
-            //    MessageBox.Show("Произошла ошибка. Убедитесь что все данные введены");
-            //else if (!Int64.TryParse(productId, out var productIdRequest) || !Int32.TryParse(count, out var countRequest) || !Int32.TryParse(pharmacyId, out var pharmacyIdRequest))
-            //    MessageBox.Show("Произошла ошибка. Проверьте формат введенных значений");
-
-
-        }
+  
 
       
 

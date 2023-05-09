@@ -22,14 +22,21 @@ namespace PharmacySystem.Client
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Получить корзину
+        /// </summary>
+        /// <returns></returns>
         public DataGridView GetTableBucket()
         {
             return BucketProductsList;
         }
 
 
-
+        /// <summary>
+        /// Обновляет общую стоимость при кажом обновлении строк корзины
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BucketProductsList_RowsUpdated(object? sender, EventArgs e)
         {
             var sum = "Итог: {0}";
@@ -42,6 +49,11 @@ namespace PharmacySystem.Client
             SumPrice.Text = String.Format(sum, sumData);
         }
 
+        /// <summary>
+        /// Покупка товаров добавленых в корзину при нажатии кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void BuyClickEvent(object sender, EventArgs e)
         {
             var list = new List<OrderProductItem>();
@@ -74,15 +86,11 @@ namespace PharmacySystem.Client
                 BucketProductsList.Rows.Clear();
         }
 
-        private void CloseBucket(object sender, EventArgs e)
+        private void BucketForm_FormClosed(object sender, FormClosingEventArgs e)
         {
             this.Hide();
-            //((FormClosedEventArgs)e).Cancel = true;
+            e.Cancel = true;
         }
 
-        private void BucketForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 } 
