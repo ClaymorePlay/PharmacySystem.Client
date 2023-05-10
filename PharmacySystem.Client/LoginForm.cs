@@ -29,20 +29,28 @@ namespace PharmacySystem.Client
         /// <param name="e"></param>
         private async void RegisterButton_Click(object sender, EventArgs e)
         {
-            var register = await WsConnection.SendAndWaitResponse<WsResponse<RegisterResponse>>(new WsRequest
+            try
             {
-                controller = "UserService",
-                method = "Register",
-                value = JsonConvert.SerializeObject(new RegisterRequest
+                var register = await WsConnection.SendAndWaitResponse<WsResponse<RegisterResponse>>(new WsRequest
                 {
-                    UserName = NameField.Text,
-                    Email = EmailField.Text,
-                    Password = PasswordField.Text,
-                    ConfirmPassword = ConfirmPasswordField.Text
-                })
-            });
+                    controller = "UserService",
+                    method = "Register",
+                    value = JsonConvert.SerializeObject(new RegisterRequest
+                    {
+                        UserName = NameField.Text,
+                        Email = EmailField.Text,
+                        Password = PasswordField.Text,
+                        ConfirmPassword = ConfirmPasswordField.Text
+                    })
+                });
 
-            RegisterResponseInfo.Text = register.ErrorMessage ?? "Регистрация прошла успешно!";
+                RegisterResponseInfo.Text = register.ErrorMessage ?? "Регистрация прошла успешно!";
+                ErrorMessages.Text = "";
+            }
+            catch(Exception ex)
+            {
+                ErrorMessages.Text = $"Не удалось завершить регистрацию. {ex.Message}";
+            }
         }
 
         /// <summary>
@@ -52,19 +60,22 @@ namespace PharmacySystem.Client
         /// <param name="e"></param>
         private async void Ender_Click(object sender, EventArgs e)
         {
-            var login = await WsConnection.SendAndWaitResponse<LoginResponse>(new WsRequest
+            try
             {
-                controller = "UserService",
-                method = "Login",
-                value = JsonConvert.SerializeObject(new LoginRequest
+                var login = await WsConnection.SendAndWaitResponse<LoginResponse>(new WsRequest
                 {
-                    Email = Email.Text,
-                    Password = Password.Text
-                })
-            });
+                    controller = "UserService",
+                    method = "Login",
+                    value = JsonConvert.SerializeObject(new LoginRequest
+                    {
+                        Email = Email.Text,
+                        Password = Password.Text
+                    })
+                });
 
-            if (login.value?.UserId != null && login.ErrorMessage == null)
-            {
+                if (login.value?.UserId == null || login.value.UserId == 0 || !String.IsNullOrWhiteSpace(login.ErrorMessage))
+                    throw new Exception(login.ErrorMessage);
+                
                 WsConnection.User = new GaneshaProgramming.Plugins.User.IServices.Models.Response.GetUserResponse
                 {
                     Email = login.value.UserName,
@@ -77,7 +88,13 @@ namespace PharmacySystem.Client
 
                 new MainForm().Show();
 
-                Close();
+                Hide();
+
+            }
+            catch(Exception ex)
+            {
+                ErrorMessages.Text = $"Не удалось Выполнить вход. {ex.Message}";
+
             }
         }
     }

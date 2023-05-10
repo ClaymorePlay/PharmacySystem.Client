@@ -46,30 +46,40 @@ namespace PharmacySystem.Client
         /// <param name="e"></param>
         private async void GetProductsButton_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-
-            var pharmacyValid = pharmacyCollection.FirstOrDefault(c => c.Value == SelectPharmacy.Text);
-            var producerValid = producerCollection.FirstOrDefault(c=> c.Value == SelectProducers.Text);
-
-            var products = await WsConnection.SendAndWaitResponse<GetProductsListResponse>(new WsRequest
+            try
             {
-                controller = "ProductService",
-                method = "GetProducts",
-                value = JsonConvert.SerializeObject(new GetProductsListRequest
-                {
-                    Page = new Server.Models.Common.PageRequest
-                    {
-                        Take = 10,
-                        Skip = String.IsNullOrWhiteSpace(PageField.Text) ? 0 : (Convert.ToInt32(PageField.Text) - 1) * 10
-                    },
-                    PharmacyId = pharmacyValid.Value == null ? null : pharmacyValid.Key,
-                    ProducerId = producerValid.Value == null ? null : producerValid.Key
-                })
-            });
+                dataGridView1.Rows.Clear();
 
-            if(products.value?.Items != null)
-                foreach (var item in products.value.Items)
-                    dataGridView1.Rows.Add(item.ProductName, item.ProductId, item.PharmacyName, item.ProducerName, item.Price, item.Count);            
+                var pharmacyValid = pharmacyCollection.FirstOrDefault(c => c.Value == SelectPharmacy.Text);
+                var producerValid = producerCollection.FirstOrDefault(c => c.Value == SelectProducers.Text);
+
+                var products = await WsConnection.SendAndWaitResponse<GetProductsListResponse>(new WsRequest
+                {
+                    controller = "ProductService",
+                    method = "GetProducts",
+                    value = JsonConvert.SerializeObject(new GetProductsListRequest
+                    {
+                        Page = new Server.Models.Common.PageRequest
+                        {
+                            Take = 10,
+                            Skip = String.IsNullOrWhiteSpace(PageField.Text) ? 0 : (Convert.ToInt32(PageField.Text) - 1) * 10
+                        },
+                        PharmacyId = pharmacyValid.Value == null ? null : pharmacyValid.Key,
+                        ProducerId = producerValid.Value == null ? null : producerValid.Key
+                    })
+                });
+
+                if(!String.IsNullOrWhiteSpace(products.ErrorMessage))
+                    ErrorMessages.Text = products.ErrorMessage;
+
+                if (products.value?.Items != null)
+                    foreach (var item in products.value.Items)
+                        dataGridView1.Rows.Add(item.ProductName, item.ProductId, item.PharmacyName, item.ProducerName, item.Price, item.Count);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessages.Text = ex.Message;
+            }
         }
 
        /// <summary>
@@ -79,29 +89,41 @@ namespace PharmacySystem.Client
        /// <param name="e"></param>
         private async void PharmacyGetButton_Click(object sender, EventArgs e)
         {
-            pharmacyCollection.Clear();
-            SelectPharmacy.Items.Clear();
-
-            var pharmacies = await WsConnection.SendAndWaitResponse<GetPharmacyListResponse>(new WsRequest
+            try
             {
-                controller = "PharmacyService",
-                method = "GetPharmacyList",
-                value = JsonConvert.SerializeObject(new GetPharmacyListRequest
-                {
-                    Page = new Server.Models.Common.PageRequest
-                    {
-                        Skip = 0,
-                        Take = 100
-                    },
-                })
-            });
+                pharmacyCollection.Clear();
+                SelectPharmacy.Items.Clear();
 
-            if(pharmacies.value != null)
-                foreach (var item in pharmacies.value.PharmacyList)
+                var pharmacies = await WsConnection.SendAndWaitResponse<GetPharmacyListResponse>(new WsRequest
                 {
-                    pharmacyCollection.Add(item.Id, item.Name);
-                    SelectPharmacy.Items.Add(item.Name);
-                }
+                    controller = "PharmacyService",
+                    method = "GetPharmacyList",
+                    value = JsonConvert.SerializeObject(new GetPharmacyListRequest
+                    {
+                        Page = new Server.Models.Common.PageRequest
+                        {
+                            Skip = 0,
+                            Take = 100
+                        },
+                    })
+                });
+
+                if (!String.IsNullOrWhiteSpace(pharmacies.ErrorMessage))
+                    ErrorMessages.Text = pharmacies.ErrorMessage;
+
+
+                if (pharmacies.value != null)
+                    foreach (var item in pharmacies.value.PharmacyList)
+                    {
+                        pharmacyCollection.Add(item.Id, item.Name);
+                        SelectPharmacy.Items.Add(item.Name);
+                    }
+            }
+            catch(Exception ex)
+            {
+                ErrorMessages.Text = ex.Message;
+
+            }
         }
 
         
@@ -112,29 +134,40 @@ namespace PharmacySystem.Client
         /// <param name="e"></param>
         private async void ProducerGetButton_Click(object sender, EventArgs e)
         {
-            producerCollection.Clear();
-            SelectProducers.Items.Clear();
-
-            var producers = await WsConnection.SendAndWaitResponse<GetProducerListResponse>(new WsRequest
+            try
             {
-                controller = "ProducerService",
-                method = "GetProducerList",
-                value = JsonConvert.SerializeObject(new GetProducerListRequest
-                {
-                    Page = new Server.Models.Common.PageRequest
-                    {
-                        Skip = 0,
-                        Take = 100
-                    },
-                })
-            });
+                producerCollection.Clear();
+                SelectProducers.Items.Clear();
 
-            if (producers.value != null)
-                foreach (var item in producers.value.Items)
+                var producers = await WsConnection.SendAndWaitResponse<GetProducerListResponse>(new WsRequest
                 {
-                    producerCollection.Add(item.Id, item.Name);
-                    SelectProducers.Items.Add(item.Name);
-                }
+                    controller = "ProducerService",
+                    method = "GetProducerList",
+                    value = JsonConvert.SerializeObject(new GetProducerListRequest
+                    {
+                        Page = new Server.Models.Common.PageRequest
+                        {
+                            Skip = 0,
+                            Take = 100
+                        },
+                    })
+                });
+
+                if (!String.IsNullOrWhiteSpace(producers.ErrorMessage))
+                    ErrorMessages.Text = producers.ErrorMessage;
+
+
+                if (producers.value != null)
+                    foreach (var item in producers.value.Items)
+                    {
+                        producerCollection.Add(item.Id, item.Name);
+                        SelectProducers.Items.Add(item.Name);
+                    }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessages.Text = ex.Message;
+            }
         }
 
         /// <summary>
@@ -143,7 +176,8 @@ namespace PharmacySystem.Client
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Administration_Click_1(object sender, EventArgs e)
-        {
+        { 
+            
             if (WsConnection.User?.Role == GaneshaProgramming.Plugins.User.IServices.Models.Enum.RoleEnum.Admin)
             {
                 var adminForm = new AdminForm();
@@ -186,6 +220,10 @@ namespace PharmacySystem.Client
                     })
                 });
 
+                if (!String.IsNullOrWhiteSpace(item.ErrorMessage))
+                    ErrorMessages.Text = item.ErrorMessage;
+
+
                 if (item.value?.ProductId != null)
                 {
                     table.Rows.Add(item.value.ProductName, count.Text, id.Text, item.value.Price);
@@ -193,7 +231,7 @@ namespace PharmacySystem.Client
             }
             catch(Exception ex)
             {
-
+                ErrorMessages.Text = ex.Message;
             }
         }
     }

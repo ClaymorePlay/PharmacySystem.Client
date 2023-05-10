@@ -32,13 +32,13 @@ namespace PharmacySystem.Client
         /// Запуск соединения
         /// </summary>
         /// <returns></returns>
-        public static async Task<Form> Start()
+        public static async Task<Form?> Start()
         {
             try
             {
                 var token = await GetToken();
 
-                Uri endpointUri = new Uri($"wss://localhost:5001/ws?token={token ?? Guid.NewGuid().ToString()}");
+                Uri endpointUri = new Uri($"wss://localhost:7172/ws?token={token ?? Guid.NewGuid().ToString()}");
 
                 _weClient.Options.KeepAliveInterval = TimeSpan.FromSeconds(120);
                 await _weClient.ConnectAsync(endpointUri, CancellationToken.None);
@@ -64,7 +64,8 @@ namespace PharmacySystem.Client
             }
             catch (Exception ex)
             {
-                throw ex ?? new Exception("Error...");
+                MessageBox.Show($"Произошла ошибка, проверьте соединение. {ex.Message}", "WS ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
         }
 

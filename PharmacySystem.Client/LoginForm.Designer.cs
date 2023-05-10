@@ -46,6 +46,7 @@
             this.PasswordLable = new System.Windows.Forms.Label();
             this.PasswordField = new System.Windows.Forms.TextBox();
             this.EmailLable = new System.Windows.Forms.Label();
+            this.ErrorMessages = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.EnterPage.SuspendLayout();
             this.RegisterPage.SuspendLayout();
@@ -110,6 +111,7 @@
             // 
             // EnterPage
             // 
+            this.EnterPage.Controls.Add(this.ErrorMessages);
             this.EnterPage.Controls.Add(this.Email);
             this.EnterPage.Controls.Add(this.Ender);
             this.EnterPage.Controls.Add(this.label1);
@@ -236,6 +238,15 @@
             this.EmailLable.TabIndex = 14;
             this.EmailLable.Text = "Почта";
             // 
+            // ErrorMessages
+            // 
+            this.ErrorMessages.Location = new System.Drawing.Point(6, 6);
+            this.ErrorMessages.Name = "ErrorMessages";
+            this.ErrorMessages.ReadOnly = true;
+            this.ErrorMessages.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ErrorMessages.Size = new System.Drawing.Size(628, 23);
+            this.ErrorMessages.TabIndex = 12;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -273,5 +284,6 @@
         private Label FullNameLable;
         private TextBox NameField;
         private Label RegisterResponseInfo;
+        private TextBox ErrorMessages;
     }
 }

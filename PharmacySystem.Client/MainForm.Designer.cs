@@ -52,6 +52,7 @@
             this.OpenBucket = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.PageField = new System.Windows.Forms.TextBox();
+            this.ErrorMessages = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -265,11 +266,21 @@
             this.PageField.Size = new System.Drawing.Size(100, 23);
             this.PageField.TabIndex = 26;
             // 
+            // ErrorMessages
+            // 
+            this.ErrorMessages.Location = new System.Drawing.Point(455, 423);
+            this.ErrorMessages.Name = "ErrorMessages";
+            this.ErrorMessages.ReadOnly = true;
+            this.ErrorMessages.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.ErrorMessages.Size = new System.Drawing.Size(333, 23);
+            this.ErrorMessages.TabIndex = 27;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ErrorMessages);
             this.Controls.Add(this.PageField);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.OpenBucket);
@@ -322,5 +333,6 @@
         private DataGridViewButtonColumn ProducerColumn;
         private DataGridViewButtonColumn PriceColumn;
         private DataGridViewTextBoxColumn CountColumn;
+        private TextBox ErrorMessages;
     }
 }

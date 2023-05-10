@@ -9,8 +9,10 @@ using System.Threading;
 
 namespace PharmacySystem.Client
 {
-    internal static class Program
+    public static class Program
     {
+        public static MainForm? _mainForm { get; set; }
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -21,9 +23,10 @@ namespace PharmacySystem.Client
 
 
             var resp = await WsConnection.Start();
-            Application.Run(resp);
+            if(resp != null)
+                Application.Run(resp);
 
-
+            
             //Thread.Sleep(99999);
         }
     }
