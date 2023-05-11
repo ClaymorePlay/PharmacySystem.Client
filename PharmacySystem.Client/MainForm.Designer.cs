@@ -31,7 +31,6 @@
             this.Administration = new System.Windows.Forms.Button();
             this.ErrorMessage = new System.Windows.Forms.Label();
             this.Mode = new System.Windows.Forms.Label();
-            this.NameInfo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.NameColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,15 +84,6 @@
             this.Mode.Name = "Mode";
             this.Mode.Size = new System.Drawing.Size(0, 15);
             this.Mode.TabIndex = 9;
-            // 
-            // NameInfo
-            // 
-            this.NameInfo.AutoSize = true;
-            this.NameInfo.ForeColor = System.Drawing.Color.Green;
-            this.NameInfo.Location = new System.Drawing.Point(628, 329);
-            this.NameInfo.Name = "NameInfo";
-            this.NameInfo.Size = new System.Drawing.Size(0, 15);
-            this.NameInfo.TabIndex = 12;
             // 
             // dataGridView1
             // 
@@ -274,7 +264,7 @@
             this.ErrorMessages.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.ErrorMessages.Size = new System.Drawing.Size(333, 23);
             this.ErrorMessages.TabIndex = 27;
-            // 
+            //  
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -295,7 +285,6 @@
             this.Controls.Add(this.SelectPharmacy);
             this.Controls.Add(this.GetProductsButton);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.NameInfo);
             this.Controls.Add(this.Mode);
             this.Controls.Add(this.ErrorMessage);
             this.Controls.Add(this.Administration);
@@ -312,7 +301,7 @@
         private Button Administration;
         private Label ErrorMessage;
         private Label Mode;
-        private Label NameInfo;
+        //private Label NameInfo;
         private DataGridView dataGridView1;
         private Button GetProductsButton;
         private ComboBox SelectPharmacy;

@@ -31,7 +31,7 @@ namespace PharmacySystem.Client
         public MainForm()
         {
             InitializeComponent();
-            NameInfo.Text = WsConnection.User?.UserName ?? "";
+            //NameInfo.Text = WsConnection.User?.UserName ?? "";
             Mode.Text = WsConnection.User?.Role.ToString() ?? "";
         }
 
@@ -234,5 +234,6 @@ namespace PharmacySystem.Client
                 ErrorMessages.Text = ex.Message;
             }
         }
+
     }
 }
